@@ -1,0 +1,25 @@
+$UserList = Import-Csv -Path 'C:\temp\user list.csv' 
+
+foreach ($User in $UserList) {
+
+     $Attributes = @{
+
+        Enabled = $true
+        ChangePasswordAtLogon = $true
+        Path = "OU=Futurama Users,DC=pdqlabs,DC=org"
+
+        Name = "$($User.First) $($User.Last)"
+        UserPrincipalName = "$($User.First).$($User.Last)@pdqlabs.org"
+        SamAccountName = "$($User.First).$($User.Last)"
+
+        GivenName = $User.First
+        Surname = $User.Last
+
+        Company = $User.Company
+        Department = $User.Department
+        Title = $User.Title
+        AccountPassword = "TotallyFakePassword123" | ConvertTo-SecureString -AsPlainText -Force
+
+     }
+
+    New-ADUser @Attributes

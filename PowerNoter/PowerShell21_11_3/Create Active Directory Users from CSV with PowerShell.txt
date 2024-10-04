@@ -1,0 +1,5 @@
+# link: https://www.alitajran.com/create-active-directory-users-from-csv-with-powershell/
+
+# script link: https://www.alitajran.com/wp-content/uploads/scripts/Add-NewUsers.ps1
+
+ 

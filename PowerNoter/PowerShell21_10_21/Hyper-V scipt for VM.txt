@@ -1,0 +1,128 @@
+
+
+
+
+ 
+-------------------------------------------------------------------------
+# VM-List:
+-------------------------------------------------------------------------
+# Name				Ram-mb				hdd-GB			ProcessorCount			Generation
+	
+# kali				4092				35				2						1
+
+# ubuntu 			4092				25				1						1
+
+# ubuntu-server		2048				25				1						2
+
+# manjaro (Mac)		4092				100				1						1
+
+# server-test-2016  2048				25 				1						1
+
+# server-2016 		2048				25				1						1
+ 
+# server-2019		2048				25				1						1
+
+# server-2022 (AD1)	2048				25				1						1	
+
+# server-2022 (AD2)	2048				25				1						1		
+
+# Windows-10-dk		4092				25				1						1
+
+# Windows-10-eng	4092				25				1						1
+
+-----------------------------------------------------------------------------
+#PowerShell Scipt
+-----------------------------------------------------------------------------
+
+#InternalSwitch 
+
+New-VMSwitch -Name mis -SwichType Internal
+
+# ExternalSwitch for server-test-16 / kail / manjaro
+
+New-VMSwitch -Name ex-sw  -NetAdapterName Ethernet -AllowManagementOS $true
+
+-----------------------------------------------------------------------------
+
+# Kali:
+ 
+New-VM -Name "kali" -MemoryStartupBytes 4092mb -Generation 1 -Path D:\Hyper-V\vm-folder\kali -NewVHDPath D:\Hyper-V\vm-folder\kali\kail-disk.vhdx -NewVHDSizeBytes 25GB -SwitchName "mis"
+
+Set-VM -Name "kali" -ProcessorCount 2
+
+Add-VMDvdDrive -VMName "Kali" -Path D:\Hyper-V\kali.iso
+
+# Ubuntu: 
+
+New-VM -Name "ubuntu" -MemoryStartupBytes 4092mb -Generation 1 -Path D:\Hyper-V\vm-folder\ubuntu -NewVHDPath D:\Hyper-V\vm-folder\ubuntu\ubuntu-disk.vhdx -NewVHDSizeBytes  25GB -SwitchName "mis"
+
+Set-VM -Name "ubuntu"  -ProcessorCount 1
+
+Add-VMDvdDrive -VMName "ubuntu" -Path D:\Hyper-V\ubuntu-desktop.iso
+
+# Ubuntu-server:
+
+New-VM -Name "ubuntu-server" -MemoryStartupBytes 2048mb -Generation 2 -Path D:\Hyper-V\vm-folder\ubuntu-server -NewVHDPath D:\Hyper-V\vm-folder\ubuntu-server\ubuntu-server-disk.vhdx -NewVHDSizeBytes 25GB -SwitchName "mis"
+
+Set-VM -Name "ubuntu-server" -ProcessorCount 1
+
+Add-VMDvdDrive -VMName "ubuntu-server" -Path D:\Hyper-V\ubuntu-server.iso
+
+# Manjaro: (Mac)
+
+New-VM -Name "manjaro" -MemoryStartupBytes 2048mb -Generation 1 -Path D:\Hyper-V\vm-folder\manjaro -NewVHDPath D:\Hyper-V\vm-folder\manjaro\manjaro-disk.vhdx -NewVHDSizeBytes 100GB -SwitchName "mis"
+
+Set-VM -Name "manjaro" -ProcessorCount 2
+
+Add-VMDvdDrive -VMName "manjaro" -Path D:\Hyper-V\manjaro-kde.iso
+
+# Server-test-16:
+
+New-VM -Name "server-test-16" -MemoryStartupBytes 2048mb -Generation 1 -Path D:\Hyper-V\vm-folder\server-test-16 -NewVHDPath D:\Hyper-V\vm-folder\server-test-16\server-test-16.vhdx -NewVHDSizeBytes 25GB -SwitchName "mis"
+
+Set-VM -Name "server-test-16" -ProcessorCount 1 
+
+Add-VMDvdDrive -VMName "server-test-16" -Path D:\Hyper-V\server-2016.ISO
+
+# Server-16:
+
+New-VM -Name "server-16" -MemoryStartupBytes 2048mb -Generation 1 -Path D:\Hyper-V\vm-folder\server-16 -NewVHDPath D:\Hyper-V\vm-folder\server-16\server-16.vhdx -NewVHDSizeBytes 25GB -SwitchName "mis"
+
+Set-VM -Name "server-16" -ProcessorCount 1
+
+Add-VMDvdDrive -VMName "server-16" -Path D:\Hyper-V\server-2016.ISO 
+
+# Server-19:
+
+New-VM -Name "server-19" -MemoryStartupBytes 2048mb -Generation 1 -Path D:\Hyper-V\vm-folder\server-19 -NewVHDPath D:\Hyper-V\vm-folder\server-19\server-19.vhdx -NewVHDSizeBytes 25GB -SwitchName "mis"
+
+Set-VM -Name "server-19" -ProcessorCount 1 
+
+Add-VMDvdDrive -VMName "server-19" -Path D:\Hyper-V\server-2019.iso
+
+# Server-22 (AD1)
+
+New-VM -Name "(AD1)server-22" -MemoryStartupBytes 2048mb -Generation 1 -Path D:\Hyper-V\vm-folder\(AD1)server-22 -NewVHDPath D:\Hyper-V\vm-folder\(AD1)server-22\(AD1)server-22.vhdx -NewVHDSizeBytes 25GB 
+
+Set-VM -Name "(AD1)server-22" -ProcessorCount 1 
+
+Add-VMDvdDrive -VMName "(AD1)server-22" -Path D:\Hyper-V\server-2022.iso 
+
+# Server-22 (AD2)
+
+New-VM -Name "server2-22" -MemoryStartupBytes 2048mb -Generation 1 -Path D:\Hyper-V\vm-folder\server2-22 -NewVHDPath D:\Hyper-V\vm-folder\server-22\server2-22.vhdx -NewVHDSizeBytes 25GB -SwitchName "mis"
+
+Set-VM -Name "server2-22" -ProcessorCount 1 
+
+Add-VMDvdDrive -VMName "server2-22" -Path D:\Hyper-V\server-2022.iso 
+
+
+# Windows-10-dk 
+
+New-VM -Name "windows-10-dk" -MemoryStartupBytes 2048mb -Generation 1 -Path D:\vm-folder\windows-10-dk -NewVHDPath D:\Hyper-V\vm-folder\windows-10-dk\windows-10-dk.vhdx -NewVHDSizeBytes 25GB -SwitchName "mis"
+
+Set-VM -Name "windows-10-dk" -ProcessorCount 1
+
+Add-VMDvdDrive -VMName "windows-10-dk" -Path D:\Hyper-V\windows-10-dk.iso
+ 
+ 

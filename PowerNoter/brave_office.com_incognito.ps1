@@ -1,0 +1,1 @@
+﻿start C:\Users\cli\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe -ArgumentList "-incognito", https://www.office.com/
