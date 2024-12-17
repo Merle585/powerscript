@@ -1,1 +1,0 @@
-﻿start "chrome.exe" -ArgumentList "-incognito"
