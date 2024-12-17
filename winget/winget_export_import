@@ -1,0 +1,19 @@
+## link: https://www.makeuseof.com/export-import-apps-winget-in-windows-11/
+
+
+## export as all appa as .json:
+
+winget export -o C:\Users\$Env:USERNAME\Downloads\apps.json
+
+## import as .json:
+
+winget import -i C:\Users\$Env:USERNAME\Downloads\apps.json --accept-package-agreements --accept-package-agreements
+
+## export as all appa as .txt: 
+
+winget export -o C:\Users\$Env:USERNAME\Downloads\apps.txt
+
+## import as .txt:
+
+winget import -i C:\Users\$Env:USERNAME\Downloads\apps.txt --accept-source-agreements --accept-package-agreements
+
